@@ -9,7 +9,6 @@ import { alumniAPI } from '../../services/api';
 export const AlumniRegistration = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState<any>({});
-  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleStep1Complete = (data: any) => {
@@ -29,7 +28,6 @@ export const AlumniRegistration = () => {
     const { confirmPassword, ...dataToSend } = completeData;
     
     try {
-      setIsLoading(true);
       console.log('Sending alumni registration data:', dataToSend);
       
       // Send data to backend
@@ -45,8 +43,6 @@ export const AlumniRegistration = () => {
     } catch (error: any) {
       console.error('Alumni registration error:', error);
       toast.error(error.response?.data?.message || error.message || 'Registration failed. Please try again.');
-    } finally {
-      setIsLoading(false);
     }
   };
 

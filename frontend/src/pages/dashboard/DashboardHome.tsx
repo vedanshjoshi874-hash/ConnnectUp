@@ -5,7 +5,6 @@ import {
   Users,
   MessageSquare,
   Calendar,
-  Briefcase,
   TrendingUp,
   Award,
   BookOpen,
