@@ -13,8 +13,6 @@ backend/.env
 frontend/.env
 
 # Build outputs
-build/
-frontend/build/
 frontend/dist/
 backend/dist/
 
