@@ -1,4 +1,25 @@
 services:
+  # Backend API
+  - type: web
+    name: connectup-backend
+    env: node
+    buildCommand: cd backend && npm ci
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: FRONTEND_URL
+        value: https://connectup-frontend.onrender.com
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 90d
+      - key: PORT
+        value: 5000
+
+  # Frontend Static Site
   - type: web
     name: connectup-frontend
     env: static
@@ -7,3 +28,5 @@ services:
     envVars:
       - key: NODE_VERSION
         value: 22.16.0
+      - key: VITE_API_URL
+        value: https://connectup-backend.onrender.com/api/v1
