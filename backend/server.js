@@ -273,5 +273,7 @@ process.on('uncaughtException', (err) => {
     process.exit(1);
   }
 });
+app.listen(process.env.PORT || 3001, () => console.log("Server running"));
+
 
 // Server startup is now handled after MongoDB connection
